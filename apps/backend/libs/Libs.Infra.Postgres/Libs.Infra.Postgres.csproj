@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>FwksLab.Libs.Infra.Postgres</AssemblyName>
+        <RootNamespace>FwksLab.Libs.Infra.Postgres</RootNamespace>
+        <IsPackable>true</IsPackable>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+</Project>
