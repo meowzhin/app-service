@@ -2,19 +2,26 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FwksLab.AppService.App.Api</AssemblyName>
-        <RootNamespace>FwksLab.AppService.App.Api</RootNamespace>
+        <AssemblyName>FwksLabs.AppService.App.Api</AssemblyName>
+        <RootNamespace>FwksLabs.AppService.App.Api</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Services\Application\**" />
+      <Content Remove="Services\Application\**" />
+      <EmbeddedResource Remove="Services\Application\**" />
+      <None Remove="Services\Application\**" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
-        <PackageReference Include="Serilog.Enrichers.ClientInfo" Version="2.1.1" />
+        <PackageReference Include="Serilog.Enrichers.ClientInfo" Version="2.1.2" />
         <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
         <PackageReference Include="Serilog.Enrichers.Sensitive" Version="1.7.3" />
         <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
     </ItemGroup>
 
     <ItemGroup>

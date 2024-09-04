@@ -1,10 +1,10 @@
-﻿using FwksLab.Libs.Core.Extensions;
+﻿using FwksLabs.Libs.Core.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace FwksLab.Libs.AspNetCore.Configuration.Options;
+namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
 
 public sealed class CustomAuthenticationOptions(
     ILogger<CustomAuthenticationOptions> logger) : IConfigureOptions<AuthenticationOptions>

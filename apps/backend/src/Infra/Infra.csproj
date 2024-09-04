@@ -2,25 +2,25 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FwksLab.AppService.Infra</AssemblyName>
-        <RootNamespace>FwksLab.AppService.Infra</RootNamespace>
+        <AssemblyName>FwksLabs.AppService.Infra</AssemblyName>
+        <RootNamespace>FwksLabs.AppService.Infra</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
-        <PackageReference Include="MongoDB.EntityFrameworkCore" Version="8.1.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\libs\Libs.Infra.Postgres\Libs.Infra.Postgres.csproj" />
         <ProjectReference Include="..\..\libs\\Libs.Core\Libs.Core.csproj" />
         <ProjectReference Include="..\..\libs\\Libs.Infra.EntityFrameworkCore\Libs.Infra.EntityFrameworkCore.csproj" />
-      <ProjectReference Include="..\Core\Core.csproj" />
+        <ProjectReference Include="..\Core\Core.csproj" />
     </ItemGroup>
 
 </Project>

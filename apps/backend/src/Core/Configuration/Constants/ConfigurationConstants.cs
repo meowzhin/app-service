@@ -1,4 +1,4 @@
-﻿namespace FwksLab.AppService.Core.Configuration.Constants;
+﻿namespace FwksLabs.AppService.Core.Configuration.Constants;
 
 public static class ConfigurationConstants
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Routing;
-using FwksLab.Libs.Core.Extensions;
+using FwksLabs.Libs.Core.Extensions;
 
-namespace FwksLab.Libs.AspNetCore.Transformers;
+namespace FwksLabs.Libs.AspNetCore.Transformers;
 
 public sealed class SlugCaseParameterTransformer : IOutboundParameterTransformer
 {

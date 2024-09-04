@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
-using FwksLab.Libs.Core.Configuration;
+using FwksLabs.Libs.Core.Configuration;
 
-namespace FwksLab.Libs.Core.Extensions;
+namespace FwksLabs.Libs.Core.Extensions;
 
 public static class SerializationExtensions
 {
@@ -13,7 +13,7 @@ public static class SerializationExtensions
 
     private static JsonSerializerOptions BuildOptions(Action<JsonSerializerOptions>? optionsAction)
     {
-        JsonSerializerOptions options = JsonSerializerConfiguration.Default;
+        JsonSerializerOptions options = JsonSerializerConfiguration.Options;
 
         optionsAction?.Invoke(options);
 

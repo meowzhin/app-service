@@ -1,4 +1,4 @@
-﻿namespace FwksLab.Libs.Core.Extensions;
+﻿namespace FwksLabs.Libs.Core.Extensions;
 
 public static class ExceptionExtensions
 {

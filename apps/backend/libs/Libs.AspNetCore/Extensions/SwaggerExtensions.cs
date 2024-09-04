@@ -1,9 +1,9 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.DependencyInjection;
-using FwksLab.Libs.Core.Security.Options;
+using FwksLabs.Libs.Core.Security.Options;
 
-namespace FwksLab.Libs.AspNetCore.Extensions;
+namespace FwksLabs.Libs.AspNetCore.Extensions;
 
 public static class SwaggerExtensions
 {

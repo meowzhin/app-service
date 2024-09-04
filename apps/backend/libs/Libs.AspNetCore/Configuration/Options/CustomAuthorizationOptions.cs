@@ -1,9 +1,9 @@
-﻿using FwksLab.Libs.Core.Extensions;
+﻿using FwksLabs.Libs.Core.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace FwksLab.Libs.AspNetCore.Configuration.Options;
+namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
 
 public sealed class CustomAuthorizationOptions(
     ILogger<CustomAuthorizationOptions> logger) : IConfigureOptions<AuthorizationOptions>

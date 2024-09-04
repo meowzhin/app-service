@@ -1,24 +1,21 @@
-﻿using FwksLab.AppService.Core.Abstractions.Repositories;
-using FwksLab.AppService.Core.Configuration.Settings;
-using FwksLab.AppService.Infra.Data.Context;
-using FwksLab.AppService.Infra.Data.Repositories;
-using Microsoft.EntityFrameworkCore;
+﻿using FwksLabs.AppService.Core.Abstractions.Repositories;
+using FwksLabs.AppService.Core.Configuration.Settings;
+using FwksLabs.AppService.Infra.Data.Contexts;
+using FwksLabs.AppService.Infra.Data.Repositories;
+using FwksLabs.Libs.Infra.Postgres.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FwksLab.AppService.Infra.Data;
+namespace FwksLabs.AppService.Infra.Data;
 
 public static class DataAccessModule
 {
-    public static IServiceCollection AddDataAccessModule(this IServiceCollection services, AppSettings appSettings)
-    {
-        return services
-            .AddDbContext<DatabaseContext>(x => x.UseMongoDB(appSettings.Persistence.Mongo.Build(), appSettings.Persistence.Mongo.Database))
+    public static IServiceCollection AddDataAccessModule(this IServiceCollection services, AppSettings appSettings) =>
+        services
+            .AddEntityFrameworkPostgres<DatabaseContext>(appSettings.Persistence.Postgres.Build())
             .AddRepositories();
-    }
 
-    private static IServiceCollection AddRepositories(this IServiceCollection services)
-    {
-        return services
-            .AddScoped<ICustomerRepository, CustomerRepository>();
-    }
+    private static IServiceCollection AddRepositories(this IServiceCollection services) =>
+        services
+            .AddScoped<ICustomerRepository, CustomerRepository>()
+            .AddScoped<IOrderRepository, OrderRepository>();
 }

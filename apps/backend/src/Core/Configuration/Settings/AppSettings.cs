@@ -1,6 +1,6 @@
-﻿using FwksLab.Libs.Core.Security.Options;
+﻿using FwksLabs.Libs.Core.Security.Options;
 
-namespace FwksLab.AppService.Core.Configuration.Settings;
+namespace FwksLabs.AppService.Core.Configuration.Settings;
 
 public record AppSettings
 {

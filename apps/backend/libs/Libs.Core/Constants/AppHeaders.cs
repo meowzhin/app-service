@@ -1,4 +1,4 @@
-﻿namespace FwksLab.Libs.Core.Constants;
+﻿namespace FwksLabs.Libs.Core.Constants;
 
 public static class AppHeaders
 {

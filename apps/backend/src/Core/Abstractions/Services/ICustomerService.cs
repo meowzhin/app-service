@@ -1,12 +1,15 @@
-﻿using FwksLab.AppService.Core.Inputs.Customers;
-using FwksLab.AppService.Core.Outputs.Common;
-using FwksLab.AppService.Core.Outputs.Customers;
+﻿using FwksLabs.AppService.Core.Abstractions.Services.Common;
+using FwksLabs.AppService.Core.Resources.Customers.Inputs;
+using FwksLabs.AppService.Core.Resources.Customers.Outputs;
+using FwksLabs.Libs.Core.Outputs;
 
-namespace FwksLab.AppService.Core.Abstractions.Services;
+namespace FwksLabs.AppService.Core.Abstractions.Services;
 
-public interface ICustomerService
+public interface ICustomerService : IService
 {
-    Task<IReadOnlyCollection<CustomerOutput>> GetAsync(CancellationToken cancellationToken = default);
-    Task<ResourceOutput?> AddAsync(CustomerInput input, CancellationToken cancellationToken = default);
-    Task PatchAsync(Guid id, CustomerInput input, CancellationToken cancellationToken = default);
+    Task<PageOutput<CustomerOutput>> GetAllAsync(CancellationToken cancellationToken);
+    Task<CustomerOutput?> GetByIdAsync(string id, CancellationToken cancellationToken);
+    Task<IdOutput?> AddAsync(CustomerInput input, CancellationToken cancellationToken);
+    Task UpdateAsync(CustomerInput input, CancellationToken cancellationToken);
+    Task DeleteByIdAsync(string id, CancellationToken cancellationToken);
 }

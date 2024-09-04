@@ -1,9 +1,7 @@
-﻿using FwksLab.Libs.Core.Abstractions;
+﻿namespace FwksLabs.Libs.Core.Entities;
 
-namespace FwksLab.Libs.Core.Entities;
-
-public abstract class Entity<TPrimaryKey> : IIdentifiableResource<TPrimaryKey> where TPrimaryKey : struct
+public class Entity<TPrimaryKey> where TPrimaryKey : struct
 {
-    public TPrimaryKey Id { get; set; }
-    public Guid UniqueId { get; set; } = Guid.NewGuid();
+    public virtual TPrimaryKey Id { get; set; }
+    public virtual Guid UniqueId { get; set; } = Guid.NewGuid();
 }

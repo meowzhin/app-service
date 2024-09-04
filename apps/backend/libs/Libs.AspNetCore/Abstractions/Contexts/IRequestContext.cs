@@ -1,6 +1,6 @@
-﻿using FwksLab.Libs.AspNetCore.Models;
+﻿using FwksLabs.Libs.AspNetCore.Models;
 
-namespace FwksLab.Libs.AspNetCore.Abstractions.Contexts;
+namespace FwksLabs.Libs.AspNetCore.Abstractions.Contexts;
 
 public interface IRequestContext
 {

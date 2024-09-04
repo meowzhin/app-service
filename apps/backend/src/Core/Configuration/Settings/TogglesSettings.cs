@@ -1,4 +1,4 @@
-﻿namespace FwksLab.AppService.Core.Configuration.Settings;
+﻿namespace FwksLabs.AppService.Core.Configuration.Settings;
 
 public record TogglesSettings
 {

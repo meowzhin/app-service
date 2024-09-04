@@ -1,10 +1,12 @@
-﻿using FwksLab.Libs.AspNetCore.Abstractions.Contexts;
-using FwksLab.Libs.AspNetCore.Models;
-using FwksLab.Libs.Core.Constants;
+﻿using System.Net.Mime;
+using FwksLabs.Libs.AspNetCore.Abstractions.Contexts;
+using FwksLabs.Libs.AspNetCore.Models;
+using FwksLabs.Libs.Core.Constants;
+using FwksLabs.Libs.Core.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace FwksLab.Libs.AspNetCore.Middlewares;
+namespace FwksLabs.Libs.AspNetCore.Middlewares;
 
 public sealed class UnexpectedExceptionMiddleware(
     ILogger<UnexpectedExceptionMiddleware> logger,
@@ -20,14 +22,12 @@ public sealed class UnexpectedExceptionMiddleware(
         {
             logger.LogError(ex, "An unexpected error has occurred.");
 
-            var problem = AppProblem.InternalServerError(ex);
-
+            context.Response.ContentType = MediaTypeNames.Application.ProblemJson;
             context.Response.StatusCode = StatusCodes.Status500InternalServerError;
 
-            if (!context.Response.Headers.TryAdd(AppHeaders.CorrelationId, requestContext.CorrelationId))
-                problem.AddExtensionProperty(nameof(AppHeaders.CorrelationId), requestContext.CorrelationId);
+            _ = context.Response.Headers.TryAdd(AppHeaders.CorrelationId, requestContext.CorrelationId);
 
-            await context.Response.WriteAsJsonAsync(problem);
+            await context.Response.WriteAsync(AppProblem.InternalServerError(ex).Serialize());
         }
     }
 }

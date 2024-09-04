@@ -1,11 +1,13 @@
-﻿using FwksLab.Libs.Core.Extensions;
-using FwksLab.Libs.Core.Security.Options;
+﻿using System.Net.Mime;
+using FwksLabs.Libs.AspNetCore.Models;
+using FwksLabs.Libs.Core.Extensions;
+using FwksLabs.Libs.Core.Security.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace FwksLab.Libs.AspNetCore.Configuration.Options;
+namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
 
 public sealed class CustomJwtBearerOptions(
     ILogger<CustomJwtBearerOptions> logger,
@@ -24,9 +26,10 @@ public sealed class CustomJwtBearerOptions(
             {
                 context.Response.OnStarting(() =>
                 {
+                    context.Response.ContentType = MediaTypeNames.Application.ProblemJson;
                     context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-
-                    return context.Response.WriteAsJsonAsync("Authorization Failed");
+                    
+                    return context.Response.WriteAsync(AppProblem.Unauthorized().Serialize());
                 });
 
                 return Task.CompletedTask;

@@ -1,15 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using FwksLab.Libs.AspNetCore.Abstractions.Contexts;
-using FwksLab.Libs.AspNetCore.Contexts;
+using FwksLabs.Libs.AspNetCore.Abstractions.Contexts;
+using FwksLabs.Libs.AspNetCore.Contexts;
 
-namespace FwksLab.Libs.AspNetCore.Configuration;
+namespace FwksLabs.Libs.AspNetCore.Configuration;
 
 public static class RequestContextConfiguration
 {
-    public static IServiceCollection AddRequestContext(this IServiceCollection services)
-    {
-        return services
+    public static IServiceCollection AddRequestContext(this IServiceCollection services) =>
+        services
             .AddScoped<IRequestContext, RequestContext>();
-    }
 }
 

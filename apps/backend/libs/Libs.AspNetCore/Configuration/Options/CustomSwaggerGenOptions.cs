@@ -4,13 +4,13 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using FwksLab.Libs.AspNetCore.Filters;
-using FwksLab.Libs.AspNetCore.Extensions;
-using FwksLab.Libs.Core.Security.Options;
-using FwksLab.Libs.Core.Extensions;
 using Asp.Versioning.ApiExplorer;
+using FwksLabs.Libs.AspNetCore.Filters;
+using FwksLabs.Libs.AspNetCore.Extensions;
+using FwksLabs.Libs.Core.Security.Options;
+using FwksLabs.Libs.Core.Extensions;
 
-namespace FwksLab.Libs.AspNetCore.Configuration.Options;
+namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
 
 public sealed class CustomSwaggerGenOptions(
     ILogger<CustomSwaggerGenOptions> logger,
@@ -23,8 +23,6 @@ public sealed class CustomSwaggerGenOptions(
         logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
 
         var doc = docOptions.Swagger as OpenApiInfo;
-
-        var d2 = System.Text.Json.JsonSerializer.Serialize(docOptions);
 
         foreach (var version in versionProvider.ApiVersionDescriptions)
         {
@@ -54,14 +52,13 @@ public sealed class CustomSwaggerGenOptions(
             new()
             {
                 Name = "x-correlation-id",
+                Description = "Correlation id to link requests and responses.",
                 In = ParameterLocation.Header,
                 Schema = new() { Type = "string", Format = "uuid" },
                 Required = true,
                 Example = Example(Guid.NewGuid())
             }
         });
-
-        options.OperationFilter<JsonIgnorePropertyFilter>();
 
         options.AddJwtBearerSecurityConfiguration();
 

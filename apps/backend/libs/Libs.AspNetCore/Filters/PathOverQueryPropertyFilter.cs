@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace FwksLab.Libs.AspNetCore.Filters;
+namespace FwksLabs.Libs.AspNetCore.Filters;
 
 // TODO: Check this
 public sealed class PathOverQueryPropertyFilter : IOperationFilter

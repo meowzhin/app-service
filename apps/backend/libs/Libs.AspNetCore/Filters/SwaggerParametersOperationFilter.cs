@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace FwksLab.Libs.AspNetCore.Filters;
+namespace FwksLabs.Libs.AspNetCore.Filters;
 
 public sealed class SwaggerParametersOperationFilter(
     IReadOnlyCollection<OpenApiParameter> parameters) : IOperationFilter

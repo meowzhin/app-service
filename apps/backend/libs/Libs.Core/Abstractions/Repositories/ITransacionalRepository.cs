@@ -1,4 +1,4 @@
-﻿namespace FwksLab.Libs.Core.Abstractions.Repositories;
+﻿namespace FwksLabs.Libs.Core.Abstractions.Repositories;
 
 public interface ITransacionalRepository
 {

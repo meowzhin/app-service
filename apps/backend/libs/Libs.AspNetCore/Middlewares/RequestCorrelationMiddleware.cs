@@ -1,8 +1,8 @@
-﻿using FwksLab.Libs.AspNetCore.Abstractions.Contexts;
-using FwksLab.Libs.Core.Constants;
+﻿using FwksLabs.Libs.AspNetCore.Abstractions.Contexts;
+using FwksLabs.Libs.Core.Constants;
 using Microsoft.AspNetCore.Http;
 
-namespace FwksLab.Libs.AspNetCore.Middlewares;
+namespace FwksLabs.Libs.AspNetCore.Middlewares;
 
 public sealed class RequestCorrelationMiddleware(
     IRequestContext requestContext) : IMiddleware

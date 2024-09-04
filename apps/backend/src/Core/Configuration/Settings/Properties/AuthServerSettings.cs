@@ -1,5 +1,5 @@
-﻿using FwksLab.Libs.Core.Security.Options;
+﻿using FwksLabs.Libs.Core.Security.Options;
 
-namespace FwksLab.AppService.Core.Configuration.Settings.Properties;
+namespace FwksLabs.AppService.Core.Configuration.Settings.Properties;
 
 public record AuthServerSettings : AuthServerOptions;

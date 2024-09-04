@@ -1,6 +1,6 @@
 ﻿using FwksLab.Libs.Core.Constants;
 
-namespace FwksLab.Libs.Core.Extensions;
+namespace FwksLabs.Libs.Core.Extensions;
 
 public static class StringExtensions
 {
@@ -21,7 +21,7 @@ public static class StringExtensions
     {
         value = value.ToPascalCase();
 
-        value = value.Length > 0 ? value.Substring(0, 1).ToLower() + value[1..] : value;
+        value = value.Length > 0 ? value[..1].ToLower() + value[1..] : value;
 
         return removeSpaces ? value.RemoveSpaces() : value;
     }

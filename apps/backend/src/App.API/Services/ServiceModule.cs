@@ -1,13 +1,15 @@
-﻿using FwksLab.AppService.App.Api.Services.Application;
-using FwksLab.AppService.Core.Abstractions.Services;
+﻿using FwksLabs.AppService.App.Api.Services.Common;
+using FwksLabs.AppService.Core.Abstractions.Services.Common;
 
-namespace FwksLab.AppService.App.Api.Services;
+namespace FwksLabs.AppService.App.Api.Services;
 
 public static class ServiceModule
 {
-    public static IServiceCollection AddServiceModule(this IServiceCollection services)
-    {
-        return services
-            .AddScoped<ICustomerService, CustomerService>();
-    }
+    public static IServiceCollection AddServiceModule(this IServiceCollection services) =>
+        services
+            .AddServices();
+
+    private static IServiceCollection AddServices(this IServiceCollection services) =>
+        services
+            .AddScoped<IValidatorService, ValidatorService>();
 }

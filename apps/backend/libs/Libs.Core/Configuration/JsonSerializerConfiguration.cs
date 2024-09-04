@@ -1,29 +1,31 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
 
-namespace FwksLab.Libs.Core.Configuration;
+namespace FwksLabs.Libs.Core.Configuration;
 
 public static class JsonSerializerConfiguration
 {
-    private static JsonSerializerOptions? _default;
+    private static JsonSerializerOptions? _options;
+    private static readonly object _lock = new();
 
-    public static JsonSerializerOptions Default
+    public static JsonSerializerOptions Options
     {
         get
         {
-            if (_default != default)
-                return _default;
+            if (_options is not null)
+                return _options;
 
-            _default = new JsonSerializerOptions
+            lock (_lock)
             {
-                PropertyNameCaseInsensitive = true,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                if (_options is not null)
+                    return _options;
 
-            };
+                _options = new();
 
-            Configure(_default);
+                Configure(_options);
 
-            return _default;
+                return _options;
+            }
         }
     }
 
@@ -31,6 +33,7 @@ public static class JsonSerializerConfiguration
     {
         options.PropertyNameCaseInsensitive = true;
         options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.WriteIndented = false;
         options.ReferenceHandler = ReferenceHandler.IgnoreCycles;
         options.Converters.Add(new JsonStringEnumConverter());
     }

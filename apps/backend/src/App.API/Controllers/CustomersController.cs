@@ -1,40 +1,41 @@
-﻿using FwksLab.AppService.App.Api.Controllers.Common;
-using FwksLab.AppService.Core.Abstractions.Services;
-using FwksLab.AppService.Core.Inputs.Customers;
-using FwksLab.AppService.Core.Outputs.Customers;
-using FwksLab.Libs.AspNetCore.Models;
+﻿using FwksLabs.AppService.App.Api.Controllers.Common;
+using FwksLabs.AppService.Core.Abstractions.Services;
+using FwksLabs.AppService.Core.Resources.Customers.Inputs;
+using FwksLabs.AppService.Core.Resources.Customers.Outputs;
+using FwksLabs.Libs.AspNetCore.Models;
+using FwksLabs.Libs.Core.Outputs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FwksLab.AppService.App.Api.Controllers;
+namespace FwksLabs.AppService.App.Api.Controllers;
 
 public sealed class CustomersController(
     ICustomerService service) : V1Controller
 {
-    [ProducesResponseType(typeof(AppProblem), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(IReadOnlyCollection<CustomerOutput>), StatusCodes.Status200OK)]
     [HttpGet("")]
-    public async Task<IResult> GetAsync()
-    {
-        return Results.Ok(await service.GetAsync());
-    }
+    [ProducesResponseType(typeof(PageOutput<CustomerOutput>), StatusCodes.Status200OK)]
+    public async Task<IResult> GetAllAsync(CancellationToken cancellationToken) =>
+        Ok(await service.GetAllAsync(cancellationToken));
 
-    [ProducesResponseType(typeof(AppProblem), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(CustomerOutput), StatusCodes.Status201Created)]
+    [HttpGet("{id}")]
+    [ProducesResponseType(typeof(CustomerOutput), StatusCodes.Status200OK)]
+    public async Task<IResult> GetByIdAsync(string id, CancellationToken cancellationToken) =>
+        Ok(await service.GetByIdAsync(id, cancellationToken));
+
     [HttpPost("")]
-    public async Task<IResult> AddAsync(CustomerInput input)
-    {
-        var resource = await service.AddAsync(input);
+    [ProducesResponseType(typeof(IdOutput), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(AppProblem), StatusCodes.Status404NotFound)]
+    public async Task<IResult> AddAsync([FromBody] CustomerInput input, CancellationToken cancellationToken) =>
+        Created(await service.AddAsync(input, cancellationToken));
 
-        return Results.Created($"/customers/{resource?.Id}", resource);
-    }
+    [HttpPatch("{id}")]
+    [ProducesResponseType(typeof(IdOutput), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(AppProblem), StatusCodes.Status404NotFound)]
+    public async Task<IResult> UpdateAsync([FromRoute] string id, [FromBody] CustomerInput input, CancellationToken cancellationToken) =>
+        await Ok(() => service.UpdateAsync(input.WithId(id), cancellationToken));
 
-    [ProducesResponseType(typeof(AppProblem), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [HttpPatch("{id:guid}")]
-    public async Task<IResult> UpdateAsync([FromRoute] Guid id, [FromBody] CustomerInput input)
-    {
-        await service.PatchAsync(id, input);
-
-        return Results.Ok();
-    }
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(AppProblem), StatusCodes.Status404NotFound)]
+    public async Task<IResult> DeleteByIdAsync([FromRoute] string id, CancellationToken cancellationToken) =>
+        await NoContent(() => service.DeleteByIdAsync(id, cancellationToken));
 }

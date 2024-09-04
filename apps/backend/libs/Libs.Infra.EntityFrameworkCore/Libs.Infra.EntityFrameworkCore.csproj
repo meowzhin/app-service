@@ -2,16 +2,16 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FwksLab.Libs.Infra.EntityFrameworkCore</AssemblyName>
-        <RootNamespace>FwksLab.Libs.Infra.EntityFrameworkCore</RootNamespace>
+        <AssemblyName>FwksLabs.Libs.Infra.EntityFrameworkCore</AssemblyName>
+        <RootNamespace>FwksLabs.Libs.Infra.EntityFrameworkCore</RootNamespace>
         <IsPackable>true</IsPackable>
         <ImplicitUsings>true</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.10" />
     </ItemGroup>
 
     <ItemGroup>

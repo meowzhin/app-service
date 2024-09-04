@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using FwksLab.Libs.Core.Extensions;
-using FwksLabCorsOptions = FwksLab.Libs.Core.Security.Options.CorsOptions;
+using FwksLabs.Libs.Core.Extensions;
+using FwksLabsCorsOptions = FwksLabs.Libs.Core.Security.Options.CorsOptions;
 
-namespace FwksLab.Libs.AspNetCore.Configuration.Options;
+namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
 
 public sealed class CustomCorsOptions(
-    FwksLabCorsOptions corsOptions,
+    FwksLabsCorsOptions corsOptions,
     ILogger<CustomCorsOptions> logger) : IConfigureOptions<CorsOptions>
 {
     public void Configure(CorsOptions options)

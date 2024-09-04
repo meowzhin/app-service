@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FwksLab.Libs.Core.Logging</AssemblyName>
-        <RootNamespace>FwksLab.Libs.Core.Logging</RootNamespace>
+        <AssemblyName>FwksLabs.Libs.Core.Logging</AssemblyName>
+        <RootNamespace>FwksLabs.Libs.Core.Logging</RootNamespace>
         <IsPackable>true</IsPackable>
         <ImplicitUsings>true</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -11,9 +11,9 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-        <PackageReference Include="Serilog" Version="4.0.1" />
-        <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.2" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+        <PackageReference Include="Serilog" Version="4.0.2" />
+        <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.3" />
     </ItemGroup>
 
 </Project>

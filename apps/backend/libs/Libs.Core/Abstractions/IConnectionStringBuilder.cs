@@ -1,4 +1,4 @@
-﻿namespace FwksLab.Libs.Core.Abstractions;
+﻿namespace FwksLabs.Libs.Core.Abstractions;
 
 public interface IConnectionStringBuilder
 {

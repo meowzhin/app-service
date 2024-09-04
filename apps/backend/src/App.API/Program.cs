@@ -1,10 +1,11 @@
 using Serilog;
-using FwksLab.Libs.AspNetCore.Configuration;
-using FwksLab.AppService.Infra.Clients;
-using FwksLab.AppService.Infra.Data;
-using FwksLab.AppService.App.Api.Services;
-using FwksLab.AppService.Core.Configuration.Settings;
-using FwksLab.Libs.Core.Logging;
+using FwksLabs.AppService.Core;
+using FwksLabs.AppService.Core.Configuration.Settings;
+using FwksLabs.AppService.Infra.Data;
+using FwksLabs.AppService.Infra.Clients;
+using FwksLabs.AppService.App.Api.Services;
+using FwksLabs.AppService.App.Api.Configuration;
+using FwksLabs.Libs.AspNetCore.Configuration;
 
 try
 {
@@ -26,12 +27,15 @@ try
         .AddRequestCorrelationMiddleware()
         .AddResponseCompression()
         .AddCors()
+        .AddHealthChecks(appSettings)
         .AddAuthentication()
         .AddBearerToken().Services
         .AddAuthorization()
         .AddApiVersioning()
         .AddApiExplorer().Services
+        .AddHttpContextAccessor()
         .AddEndpointsApiExplorer()
+        .AddHttpClient()
         .AddControllers()
 
         // Options Override
@@ -42,9 +46,9 @@ try
         .OverrideCorsOptions(appSettings.Security.Cors)
         .OverrideAuthOptions(appSettings.Security.AuthServer)
         .OverrideMvcOptions()
-        .OverrideJsonOptions()
 
         // Modules
+        .AddCoreModule(appSettings)
         .AddServiceModule()
         .AddClientsModule()
         .AddDataAccessModule(appSettings);
@@ -65,7 +69,9 @@ try
         .UseAuthentication()
         .UseAuthorization();
 
-    app.MapControllers();
+    app
+        .MapHealthCheckEndpoints()
+        .MapControllers();
 
     Log.Information("App is starting up");
 

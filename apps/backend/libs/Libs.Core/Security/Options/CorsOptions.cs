@@ -1,4 +1,4 @@
-﻿namespace FwksLab.Libs.Core.Security.Options;
+﻿namespace FwksLabs.Libs.Core.Security.Options;
 
 public record CorsOptions
 {

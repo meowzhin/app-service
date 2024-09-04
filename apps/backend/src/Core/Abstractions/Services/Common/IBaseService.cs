@@ -1,3 +1,3 @@
-﻿namespace FwksLab.AppService.Core.Abstractions.Services.Common;
+﻿namespace FwksLabs.AppService.Core.Abstractions.Services.Common;
 
 internal interface IBaseService;

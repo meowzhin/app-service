@@ -1,9 +1,9 @@
 ﻿using Asp.Versioning.ApiExplorer;
-using FwksLab.Libs.Core.Extensions;
+using FwksLabs.Libs.Core.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace FwksLab.Libs.AspNetCore.Configuration.Options;
+namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
 
 public sealed class CustomApiExplorerOptions(
     ILogger<CustomApiExplorerOptions> logger) : IConfigureOptions<ApiExplorerOptions>

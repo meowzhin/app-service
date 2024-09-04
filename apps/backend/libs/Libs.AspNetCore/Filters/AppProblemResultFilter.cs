@@ -1,9 +1,11 @@
-﻿using FwksLab.Libs.AspNetCore.Abstractions.Contexts;
+﻿using System.Net.Mime;
+using FwksLabs.Libs.AspNetCore.Abstractions.Contexts;
+using FwksLabs.Libs.Core.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
-namespace FwksLab.Libs.AspNetCore.Filters;
+namespace FwksLabs.Libs.AspNetCore.Filters;
 
 public sealed class AppProblemResultFilter(
     ILogger<AppProblemResultFilter> logger,
@@ -15,9 +17,10 @@ public sealed class AppProblemResultFilter(
         {
             logger.LogError("An error occured: {@Problem}", requestContext.Problem);
 
+            context.HttpContext.Response.ContentType = MediaTypeNames.Application.ProblemJson;
             context.HttpContext.Response.StatusCode = requestContext.Problem.Status;
 
-            await context.HttpContext.Response.WriteAsJsonAsync(requestContext.Problem);
+            await context.HttpContext.Response.WriteAsync(requestContext.Problem.Serialize());
 
             return;
         }
