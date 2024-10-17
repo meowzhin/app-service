@@ -7,7 +7,7 @@ namespace FwksLabs.Libs.Infra.Redis.Configuration;
 
 public static class RedisHealthCheckConfiguration
 {
-    public static IHealthChecksBuilder AddRedisHealthCheck(this IHealthChecksBuilder builder, string name, string connectionString, bool critical = true) =>
+    public static IHealthChecksBuilder AddRedisHealthCheck(this IHealthChecksBuilder builder, string name, string connectionString, bool critical) =>
         builder
             .AddCustomHealthCheck(
                 name,

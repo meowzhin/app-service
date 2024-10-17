@@ -22,10 +22,10 @@ public abstract class BaseHealthCheck<THealthCheck>(ILogger<THealthCheck> logger
 
     protected HealthCheckResult Healthy(IReadOnlyDictionary<string, object>? data = null) => Healthy("is healthy.", data);
 
-    protected HealthCheckResult NotHealthy(string message, IReadOnlyDictionary<string, object>? data = null) =>
+    protected HealthCheckResult HealthResult(string message, IReadOnlyDictionary<string, object>? data = null) =>
         _isCritical ? Unhealthy(message, data) : Degraded(message, data);
 
-    protected HealthCheckResult NotHealthy(IReadOnlyDictionary<string, object>? data = null) => NotHealthy("is not healthy.", data);
+    protected HealthCheckResult HealthResult(IReadOnlyDictionary<string, object>? data = null) => HealthResult("is not healthy.", data);
 
     protected HealthCheckResult Degraded(string message, IReadOnlyDictionary<string, object>? data = null) =>
         HealthCheckResult.Degraded($"{_context!.Registration.Name} {message}", data: data);
@@ -62,7 +62,7 @@ public abstract class BaseHealthCheck<THealthCheck>(ILogger<THealthCheck> logger
         {
             LogError(ex);
 
-            return Unhealthy();
+            return HealthResult();
         }
     }
 }

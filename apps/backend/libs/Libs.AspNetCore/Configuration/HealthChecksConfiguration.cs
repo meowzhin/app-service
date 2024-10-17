@@ -20,7 +20,7 @@ public static class HealthChecksConfiguration
         return services;
     }
 
-    public static IHealthChecksBuilder AddInternalServiceHealthCheck(this IHealthChecksBuilder builder, string name, string serviceUrl, bool critical = true) =>
+    public static IHealthChecksBuilder AddInternalServiceHealthCheck(this IHealthChecksBuilder builder, string name, string serviceUrl, bool critical) =>
         builder
             .AddCustomHealthCheck(name, sp => new InternalServiceHealthCheck(sp.GetLogger<InternalServiceHealthCheck>(), sp.GetHttpClientFactory(), serviceUrl), critical);
 

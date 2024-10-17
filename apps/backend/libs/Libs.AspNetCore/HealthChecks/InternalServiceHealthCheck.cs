@@ -18,11 +18,8 @@ public sealed class InternalServiceHealthCheck(
 
             var client = httpClientFactory.CreateClient();
 
-            if (await CheckLiveness(client, serviceUrl, cancellationToken) is false)
-                return NotHealthy();
-
             if (await CheckReadiness(client, serviceUrl, cancellationToken) is false)
-                return Unhealthy();
+                return HealthResult();
 
             return Healthy();
         }

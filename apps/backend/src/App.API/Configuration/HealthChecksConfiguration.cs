@@ -11,7 +11,7 @@ public static class HealthChecksConfiguration
     {
         services
             .AddHealthChecks()
-            .AddPostgresHealthCheck("postgres", appSettings.Persistence.Postgres.Build())
+            .AddPostgresHealthCheck("postgres", appSettings.Persistence.Postgres.Build(), true)
             .AddRedisHealthCheck("redis", appSettings.Persistence.Redis.Build(), false)
             .AddInternalServiceHealthCheck("fwks-customers", "https://localhost:5001", false);
 
