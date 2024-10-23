@@ -1,11 +1,11 @@
 ﻿using FwksLabs.AppService.Core.Abstractions.Repositories;
 using FwksLabs.AppService.Core.Configuration.Settings;
-using FwksLabs.AppService.Infra.Data.Contexts;
-using FwksLabs.AppService.Infra.Data.Repositories;
 using FwksLabs.Libs.Infra.Postgres.Configuration;
+using FwksLabs.ResumeService.Infra.Data.Contexts;
+using FwksLabs.ResumeService.Infra.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FwksLabs.AppService.Infra.Data;
+namespace FwksLabs.ResumeService.Infra.Data;
 
 public static class DataAccessModule
 {

@@ -2,7 +2,7 @@
 using FwksLabs.Libs.Core.Abstractions.Repositories;
 using FwksLabs.Libs.Core.Entities;
 
-namespace FwksLabs.AppService.Core.Abstractions.Services.Common;
+namespace FwksLabs.ResumeService.Core.FwksLabs.AppService.Core.Abstractions.Services.Common;
 
 public interface IValidatorService
 {

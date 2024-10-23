@@ -15,13 +15,21 @@ public abstract class EntityConfiguration<TEntity>() : IEntityTypeConfiguration<
 
         builder
             .ToTable(TableName, SchemaName)
-            .HasKey(x => x.Id)
+            .HasKey(static x => x.Id)
             .HasName($"PK_{TableName}");
 
         builder
-            .HasIndex(x => x.UniqueId)
+            .HasIndex(static x => x.UniqueId)
             .IsUnique()
             .HasDatabaseName($"IX_UK_{TableName}");
+
+        builder
+            .HasQueryFilter(static x => !x.IsDeleted);
+
+        builder
+            .HasIndex(static x => x.IsDeleted)
+            .HasDatabaseName($"IX_{TableName}_IsDeleted")
+            .HasFilter("IsDeleted = 0");
 
         Extend(builder);
     }

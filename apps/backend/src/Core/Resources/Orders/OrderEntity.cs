@@ -1,11 +1,11 @@
 ﻿using FwksLabs.Libs.Core.Entities;
-using FwksLabs.Libs.Core.Security.Attributes;
-using FwksLabs.Libs.Core.Security.Extensions;
+using FwksLabs.Libs.Core.Extensions;
 using FwksLabs.AppService.Core.Extensions;
 using FwksLabs.AppService.Core.Resources.Orders.Outputs;
 using FwksLabs.AppService.Core.Resources.Orders.Inputs;
 using FwksLabs.AppService.Core.Enums;
 using FwksLabs.AppService.Core.Resources.Customers;
+using FwksLabs.Libs.Core.Attributes;
 
 namespace FwksLabs.AppService.Core.Resources.Orders;
 

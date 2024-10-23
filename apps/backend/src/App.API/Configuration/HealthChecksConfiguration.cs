@@ -2,8 +2,9 @@
 using FwksLabs.Libs.Infra.Postgres.Configuration;
 using FwksLabs.Libs.Infra.Redis.Configuration;
 using FwksLabs.Libs.AspNetCore.Configuration;
+using FwksLabs.ResumeService.App.Api.Configuration;
 
-namespace FwksLabs.AppService.App.Api.Configuration;
+namespace FwksLabs.ResumeService.App.Api.Configuration;
 
 public static class HealthChecksConfiguration
 {

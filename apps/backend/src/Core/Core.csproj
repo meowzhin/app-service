@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FwksLabs.AppService.Core</AssemblyName>
-        <RootNamespace>FwksLabs.AppService.Core</RootNamespace>
+        <AssemblyName>FwksLabs.ResumeService.Core</AssemblyName>
+        <RootNamespace>FwksLabs.ResumeService.Core</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -15,7 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\libs\Libs.Core.Security\Libs.Core.Security.csproj" />
         <ProjectReference Include="..\..\libs\Libs.Core\Libs.Core.csproj" />
         <ProjectReference Include="..\..\libs\Libs.Infra.Redis\Libs.Infra.Redis.csproj" />
     </ItemGroup>

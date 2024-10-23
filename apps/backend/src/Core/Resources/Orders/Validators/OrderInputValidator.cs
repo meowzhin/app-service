@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FwksLabs.AppService.Core.Abstractions.Repositories;
 using FwksLabs.AppService.Core.Resources.Orders.Inputs;
-using FwksLabs.Libs.Core.Security.Extensions;
+using FwksLabs.Libs.Core.Extensions;
 
 namespace FwksLabs.AppService.Core.Resources.Orders.Validators;
 

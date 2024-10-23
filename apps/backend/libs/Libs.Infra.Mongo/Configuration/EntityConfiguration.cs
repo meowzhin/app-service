@@ -1,5 +1,5 @@
 ﻿using FwksLabs.Libs.Core.Entities;
-using FwksLabs.Libs.Core.Extensions;
+using Humanizer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MongoDB.EntityFrameworkCore.Extensions;
@@ -14,7 +14,7 @@ public abstract class EntityConfiguration<TEntity>(string? name = null) : IEntit
         var typeIdentifier = typeof(TEntity).Name.Replace("Entity", string.Empty);
 
         builder
-            .ToCollection(name ?? typeIdentifier.ToCamelCase())
+            .ToCollection(name ?? typeIdentifier.Camelize())
             .HasKey(x => x.Id);
 
         builder
@@ -26,6 +26,7 @@ public abstract class EntityConfiguration<TEntity>(string? name = null) : IEntit
 
     public virtual void Extend(EntityTypeBuilder<TEntity> builder) { }
 }
+
 
 //public sealed class MongoDbHealthCheck(
 //    ILogger<MongoDbHealthCheck> logger,

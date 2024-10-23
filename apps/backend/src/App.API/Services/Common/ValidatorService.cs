@@ -5,9 +5,9 @@ using FwksLabs.Libs.AspNetCore.Abstractions.Contexts;
 using FwksLabs.Libs.AspNetCore.Extensions;
 using FwksLabs.Libs.Core.Abstractions.Repositories;
 using FwksLabs.Libs.Core.Entities;
-using FwksLabs.Libs.Core.Security.Extensions;
+using FwksLabs.Libs.Core.Extensions;
 
-namespace FwksLabs.AppService.App.Api.Services.Common;
+namespace FwksLabs.ResumeService.App.Api.Services.Common;
 
 public sealed class ValidatorService(
     IRequestContext requestContext,

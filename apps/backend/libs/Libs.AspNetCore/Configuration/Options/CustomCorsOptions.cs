@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using FwksLabs.Libs.Core.Extensions;
 using FwksLabsCorsOptions = FwksLabs.Libs.Core.Security.Options.CorsOptions;
 
 namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
@@ -12,7 +12,7 @@ public sealed class CustomCorsOptions(
 {
     public void Configure(CorsOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
         foreach (var settings in corsOptions.Policies)
         {

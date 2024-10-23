@@ -1,5 +1,5 @@
 ﻿using FwksLabs.Libs.Core.Entities;
-using FwksLabs.Libs.Core.Security.Extensions;
+using FwksLabs.Libs.Core.Extensions;
 
 namespace FwksLabs.AppService.Core.Extensions;
 

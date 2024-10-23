@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FwksLabs.AppService.Infra</AssemblyName>
-        <RootNamespace>FwksLabs.AppService.Infra</RootNamespace>
+        <AssemblyName>FwksLabs.ResumeService.Infra</AssemblyName>
+        <RootNamespace>FwksLabs.ResumeService.Infra</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>

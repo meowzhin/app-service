@@ -1,4 +1,4 @@
-﻿using FwksLabs.Libs.Core.Extensions;
+﻿using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -10,6 +10,6 @@ public sealed class CustomAuthorizationOptions(
 {
     public void Configure(AuthorizationOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
     }
 }

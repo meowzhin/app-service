@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace FwksLabs.AppService.Infra.Clients;
+namespace FwksLabs.ResumeService.Infra.Clients;
 
 public static class ClientsModule
 {

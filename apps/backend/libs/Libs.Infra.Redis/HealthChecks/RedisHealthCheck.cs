@@ -12,4 +12,3 @@ public sealed class RedisHealthCheck(
     public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default) =>
         CheckHealthAsync(context, async () => _ = await ConnectionMultiplexer.Connect(connectionString).GetDatabase().PingAsync(), cancellationToken);
 }
-

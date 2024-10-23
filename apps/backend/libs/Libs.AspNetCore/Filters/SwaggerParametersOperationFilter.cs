@@ -11,6 +11,11 @@ public sealed class SwaggerParametersOperationFilter(
         operation.Parameters ??= [];
 
         foreach (var parameter in parameters)
+        {
+            if (operation.Parameters.Any(x => x.Name == parameter.Name))
+                continue;
+
             operation.Parameters.Add(parameter);
+        }
     }
 }

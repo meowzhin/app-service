@@ -7,7 +7,6 @@ using FwksLabs.AppService.Core.Resources.Customers.Inputs;
 using FwksLabs.AppService.Core.Resources.Customers.Outputs;
 using FwksLabs.Libs.Core.Extensions;
 using FwksLabs.Libs.Core.Outputs;
-using FwksLabs.Libs.Core.Security.Extensions;
 
 namespace FwksLabs.AppService.Core.Services;
 

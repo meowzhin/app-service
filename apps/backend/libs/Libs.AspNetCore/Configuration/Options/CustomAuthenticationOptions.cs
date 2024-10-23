@@ -1,4 +1,4 @@
-﻿using FwksLabs.Libs.Core.Extensions;
+﻿using Humanizer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Logging;
@@ -11,7 +11,7 @@ public sealed class CustomAuthenticationOptions(
 {
     public void Configure(AuthenticationOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
         options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
     }

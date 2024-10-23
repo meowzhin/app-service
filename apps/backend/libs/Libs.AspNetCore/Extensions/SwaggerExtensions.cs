@@ -67,7 +67,7 @@ public static class SwaggerExtensions
                         Id = "OAuth2"
                     }
                 },
-                authServer.Scopes.Select(x => x.Key).ToArray()
+                authServer.Scopes.Select(static x => x.Key).ToArray()
             },
         });
     }

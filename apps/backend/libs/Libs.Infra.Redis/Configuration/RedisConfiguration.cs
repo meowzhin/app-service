@@ -1,15 +1,14 @@
-﻿using FwksLabs.Libs.Core.Abstractions.Services;
-using FwksLabs.Libs.Infra.Redis.Services;
-using Microsoft.Extensions.DependencyInjection;
-using StackExchange.Redis;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace FwksLabs.Libs.Infra.Redis.Configuration;
 
 public static class RedisConfiguration
 {
-    public static IServiceCollection AddRedis(this IServiceCollection services, string connectionString) =>
+    public static IServiceCollection AddDistributedCache2(this IServiceCollection services, string appName, string connectionString) =>
         services
-            .AddSingleton(new Lazy<IConnectionMultiplexer>(() => ConnectionMultiplexer.Connect(connectionString)))
-            .AddScoped(sp => sp.GetRequiredService<Lazy<IConnectionMultiplexer>>().Value!.GetDatabase())
-            .AddScoped<IRedisService, RedisService>();
+            .AddStackExchangeRedisCache(x =>
+            {
+                x.InstanceName = appName;
+                x.Configuration = connectionString;
+            });
 }

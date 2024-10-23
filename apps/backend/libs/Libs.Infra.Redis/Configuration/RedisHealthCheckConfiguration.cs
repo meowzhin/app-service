@@ -9,8 +9,6 @@ public static class RedisHealthCheckConfiguration
 {
     public static IHealthChecksBuilder AddRedisHealthCheck(this IHealthChecksBuilder builder, string name, string connectionString, bool critical) =>
         builder
-            .AddCustomHealthCheck(
-                name,
-                sp => new RedisHealthCheck(sp.GetRequiredService<ILogger<RedisHealthCheck>>(), connectionString),
-                critical);
+            .AddCustomHealthCheck(name, sp => 
+                new RedisHealthCheck(sp.GetRequiredService<ILogger<RedisHealthCheck>>(), connectionString), critical);
 }

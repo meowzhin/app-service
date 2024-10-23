@@ -3,7 +3,7 @@ using FwksLabs.Libs.Infra.EntityFrameworkCore.Configuration.Common;
 using FwksLabs.Libs.Infra.EntityFrameworkCore.Extensions;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FwksLabs.AppService.Infra.Data.Configuration;
+namespace FwksLabs.ResumeService.Infra.Data.Configuration;
 
 public sealed class OrderConfiguration : EntityConfiguration<OrderEntity>, IEntityConfiguration
 {
@@ -12,8 +12,8 @@ public sealed class OrderConfiguration : EntityConfiguration<OrderEntity>, IEnti
     public override void Extend(EntityTypeBuilder<OrderEntity> builder)
     {
         builder
-            .HasOne(x => x.Customer)
-            .WithMany(x => x.Orders)
-            .HasForeignKey(x => x.CustomerId, TableName, "CustomerId");
+            .HasOne(static x => x.Customer)
+            .WithMany(static x => x.Orders)
+            .HasForeignKey(static x => x.CustomerId, TableName, "CustomerId");
     }
 }

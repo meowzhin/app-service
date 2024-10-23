@@ -7,11 +7,11 @@ public sealed class PhoneNumberInputValidator : AbstractValidator<PhoneNumberInp
 {
     public PhoneNumberInputValidator()
     {
-        RuleFor(x => x.CountryCode)
-            .Must(x => x.StartsWith('+'))
+        RuleFor(static x => x.CountryCode)
+            .Must(static x => x.StartsWith('+'))
             .WithMessage("Country code must start with '+' indicating country.");
 
-        RuleFor(x => x.Number)
+        RuleFor(static x => x.Number)
             .Matches("^[0-9]+$")
             .WithMessage("The Number must contain only numeric characters.");
     }

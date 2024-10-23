@@ -13,7 +13,7 @@ public record PostgresSettings : IConnectionStringBuilder
     public string Build()
     {
         // TODO: Fix this
-        var parameters = Parameters.Select(x => $"{x.Key}={x.Value}");
+        var parameters = Parameters.Select(static x => $"{x.Key}={x.Value}");
 
         return string.Join(';', [
             $"Host={Host}",

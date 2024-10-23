@@ -2,7 +2,7 @@
 using FwksLabs.Libs.AspNetCore.Attributes;
 using FwksLabs.Libs.AspNetCore.Conventions;
 using FwksLabs.Libs.AspNetCore.Filters;
-using FwksLabs.Libs.Core.Extensions;
+using Humanizer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +16,7 @@ public sealed class CustomMvcOptions(
 {
     public void Configure(MvcOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
         options.Filters.Add(new ProducesAttribute(MediaTypeNames.Application.Json));
         options.Filters.Add(new ProducesAttribute(MediaTypeNames.Application.ProblemJson));

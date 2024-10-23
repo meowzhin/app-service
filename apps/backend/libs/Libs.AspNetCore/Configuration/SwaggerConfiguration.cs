@@ -2,6 +2,7 @@
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.DependencyInjection;
 using FwksLabs.Libs.AspNetCore.Configuration.Options;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace FwksLabs.Libs.AspNetCore.Configuration;
 
@@ -9,7 +10,8 @@ public static class SwaggerConfiguration
 {
     public static IServiceCollection OverrideSwaggerGenOptions(this IServiceCollection services) =>
         services
-            .AddTransient<IConfigureOptions<SwaggerGenOptions>, CustomSwaggerGenOptions>();
+            .AddTransient<IConfigureOptions<SwaggerGenOptions>, CustomSwaggerGenOptions>()
+            .AddTransient<IConfigureOptions<SwaggerUIOptions>, CustomSwaggerUIOptions>();
 
     public static IServiceCollection OverrideSwaggerGenOptions<TOptions>(this IServiceCollection services)
         where TOptions : class, IConfigureOptions<SwaggerGenOptions> =>

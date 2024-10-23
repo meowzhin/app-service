@@ -8,3 +8,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: appservice
       MONGO_INITDB_ROOT_PASSWORD: appservice
+
+
+      todo: fix queries with isdeleted when necessary and fix controllers to minimal apis.

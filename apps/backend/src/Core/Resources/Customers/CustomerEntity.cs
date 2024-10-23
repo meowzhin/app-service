@@ -3,8 +3,8 @@ using FwksLabs.AppService.Core.Resources.Common.Models;
 using FwksLabs.AppService.Core.Resources.Customers.Inputs;
 using FwksLabs.AppService.Core.Resources.Customers.Outputs;
 using FwksLabs.AppService.Core.Resources.Orders;
+using FwksLabs.Libs.Core.Attributes;
 using FwksLabs.Libs.Core.Entities;
-using FwksLabs.Libs.Core.Security.Attributes;
 
 namespace FwksLabs.AppService.Core.Resources.Customers;
 

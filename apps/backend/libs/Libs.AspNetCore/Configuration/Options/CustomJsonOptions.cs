@@ -1,5 +1,5 @@
 ﻿using FwksLabs.Libs.Core.Configuration;
-using FwksLabs.Libs.Core.Extensions;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -11,7 +11,7 @@ public sealed class CustomJsonOptions(
 {
     public void Configure(JsonOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
         JsonSerializerConfiguration.Configure(options.JsonSerializerOptions);
     }

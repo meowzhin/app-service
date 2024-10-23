@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace FwksLabs.AppService.App.Api.Controllers.Common;
+namespace FwksLabs.ResumeService.App.Api.Controllers.Common;
 
 [ApiController]
 [Route("v{v:apiVersion}/[controller]")]

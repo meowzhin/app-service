@@ -24,14 +24,15 @@ public static class HealthChecksConfiguration
         builder
             .AddCustomHealthCheck(name, sp => new InternalServiceHealthCheck(sp.GetLogger<InternalServiceHealthCheck>(), sp.GetHttpClientFactory(), serviceUrl), critical);
 
+    // TODO: BREAK THE IMPLEMENTATION INTO SEPARATE CLASSES
     public static WebApplication MapHealthCheckEndpoints(this WebApplication builder)
     {
         builder
             .MapHealthChecks("/health/liveness", new()
             {
-                Predicate = _ => false,
+                Predicate = static _ => false,
                 ResultStatusCodes = HealthStatusCodes(),
-                ResponseWriter = (context, report) =>
+                ResponseWriter = static (context, report) =>
                 {
                     context.Response.ContentType = MediaTypeNames.Application.Json;
                     return context.Response.WriteAsync("Up and running.");
@@ -42,7 +43,7 @@ public static class HealthChecksConfiguration
             .MapHealthChecks("/health/readiness", new()
             {
                 ResultStatusCodes = HealthStatusCodes(),
-                ResponseWriter = (context, report) =>
+                ResponseWriter = static (context, report) =>
                 {
                     context.Response.ContentType = MediaTypeNames.Application.Json;
                     return context.Response.WriteAsync(HealthCheckDependencyReport.From(report));

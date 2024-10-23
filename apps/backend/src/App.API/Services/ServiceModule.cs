@@ -1,7 +1,7 @@
-﻿using FwksLabs.AppService.App.Api.Services.Common;
-using FwksLabs.AppService.Core.Abstractions.Services.Common;
+﻿using FwksLabs.AppService.Core.Abstractions.Services.Common;
+using FwksLabs.ResumeService.App.Api.Services.Common;
 
-namespace FwksLabs.AppService.App.Api.Services;
+namespace FwksLabs.ResumeService.App.Api.Services;
 
 public static class ServiceModule
 {

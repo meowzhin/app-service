@@ -2,6 +2,7 @@
 using FwksLabs.Libs.AspNetCore.Models;
 using FwksLabs.Libs.Core.Extensions;
 using FwksLabs.Libs.Core.Security.Options;
+using Humanizer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -15,7 +16,7 @@ public sealed class CustomJwtBearerOptions(
 {
     public void Configure(JwtBearerOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
         options.Authority = authServer.Authority;
         options.Audience = authServer.Audience;
@@ -28,7 +29,7 @@ public sealed class CustomJwtBearerOptions(
                 {
                     context.Response.ContentType = MediaTypeNames.Application.ProblemJson;
                     context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    
+                
                     return context.Response.WriteAsync(AppProblem.Unauthorized().Serialize());
                 });
 

@@ -4,46 +4,68 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using Asp.Versioning.ApiExplorer;
 using FwksLabs.Libs.AspNetCore.Filters;
 using FwksLabs.Libs.AspNetCore.Extensions;
 using FwksLabs.Libs.Core.Security.Options;
-using FwksLabs.Libs.Core.Extensions;
+using Humanizer;
+using Asp.Versioning.ApiExplorer;
+using Swashbuckle.AspNetCore.SwaggerUI;
+using Microsoft.AspNetCore.Builder;
 
 namespace FwksLabs.Libs.AspNetCore.Configuration.Options;
 
+public interface ApiVersionOptions
+{
+    int[] ApiVersions { get; }
+}
+
+public sealed class CustomSwaggerUIOptions(
+    ILogger<CustomSwaggerGenOptions> logger) : IConfigureOptions<SwaggerUIOptions>
+{
+    public void Configure(SwaggerUIOptions options)
+    {
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
+
+        //foreach (var version in versionProvider.ApiVersionDescriptions)
+        //{
+        //    options.SwaggerEndpoint($"/swagger/{version.GroupName}/swagger.json", version.GroupName.ToUpperInvariant());
+        //}
+        
+        options.SwaggerEndpoint($"/swagger/v2/swagger.json", "V2");
+    }
+}
 public sealed class CustomSwaggerGenOptions(
-    ILogger<CustomSwaggerGenOptions> logger,
+ILogger<CustomSwaggerGenOptions> logger,
     IApiVersionDescriptionProvider versionProvider,
-    DocumentationOptions docOptions,
     AuthServerOptions authServer) : IConfigureOptions<SwaggerGenOptions>
 {
     public void Configure(SwaggerGenOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
-        var doc = docOptions.Swagger as OpenApiInfo;
 
         foreach (var version in versionProvider.ApiVersionDescriptions)
         {
             options.SwaggerDoc(version.GroupName, new()
             {
-                Title = doc?.Title ?? "Swagger API Service",
-                Description = doc?.Description ?? "API Documentation",
+                //Title = doc?.Title ?? "Swagger API Service",
+                //Description = doc?.Description ?? "API Documentation",
+                Title = "Swagger API Service",
+                Description = "API Documentation",
                 Version = version.GroupName,
-                Contact = new()
-                {
-                    Name = doc?.Contact?.Name,
-                    Email = doc?.Contact?.Email,
-                    Url = doc?.Contact?.Url,
-                },
-                License = new()
-                {
-                    Name = doc?.License?.Name,
-                    Url = doc?.License?.Url
-                },
-                TermsOfService = doc?.TermsOfService
-            });
+                //Contact = new()
+                //{
+                //    Name = doc?.Contact?.Name,
+                //    Email = doc?.Contact?.Email,
+                //    Url = doc?.Contact?.Url,
+                //},
+                //License = new()
+                //{
+                //    Name = doc?.License?.Name,
+                //    Url = doc?.License?.Url
+                //},
+                //TermsOfService = doc?.TermsOfService
+            });            
         }
 
         options.DescribeAllParametersInCamelCase();
@@ -52,7 +74,7 @@ public sealed class CustomSwaggerGenOptions(
             new()
             {
                 Name = "x-correlation-id",
-                Description = "Correlation id to link requests and responses.",
+                Description = "Correlation id used to track the lifecycle of the request throughout the applications.",
                 In = ParameterLocation.Header,
                 Schema = new() { Type = "string", Format = "uuid" },
                 Required = true,

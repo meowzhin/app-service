@@ -6,7 +6,6 @@ using FwksLabs.AppService.Core.Configuration.Settings;
 using FwksLabs.AppService.Core.Configuration.Settings.Properties;
 using FwksLabs.AppService.Core.Services;
 using FwksLabs.Libs.Core.Security;
-using FwksLabs.Libs.Infra.Redis.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FwksLabs.AppService.Core;
@@ -16,7 +15,7 @@ public static class CoreModule
     public static IServiceCollection AddCoreModule(this IServiceCollection services, AppSettings appSettings) =>
         services
             .AddServices()
-            .AddRedis(appSettings.Persistence.Redis.Build())
+            //.AddRedis(appSettings.Persistence.Redis.Build())
             .AddObfuscator(appSettings.Security.Obfuscator)
             .AddFluentValidation();
 

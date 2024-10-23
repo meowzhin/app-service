@@ -1,11 +1,11 @@
 using Serilog;
 using FwksLabs.AppService.Core;
 using FwksLabs.AppService.Core.Configuration.Settings;
-using FwksLabs.AppService.Infra.Data;
-using FwksLabs.AppService.Infra.Clients;
-using FwksLabs.AppService.App.Api.Services;
-using FwksLabs.AppService.App.Api.Configuration;
 using FwksLabs.Libs.AspNetCore.Configuration;
+using FwksLabs.ResumeService.Infra.Clients;
+using FwksLabs.ResumeService.Infra.Data;
+using FwksLabs.ResumeService.App.Api.Configuration;
+using FwksLabs.ResumeService.App.Api.Services;
 
 try
 {
@@ -16,8 +16,7 @@ try
     var appSettings = builder.Configuration.Get<AppSettings>()!;
 
     builder.Services
-        .AddSingleton(appSettings)
-        .AddSingleton(appSettings.Documentation)
+        .AddOptions<AppSettings>().Services
 
         // ASP.NET Core Services
         .AddSerilog()
@@ -45,7 +44,6 @@ try
         .OverrideCompressionOptions()
         .OverrideCorsOptions(appSettings.Security.Cors)
         .OverrideAuthOptions(appSettings.Security.AuthServer)
-        .OverrideMvcOptions()
 
         // Modules
         .AddCoreModule(appSettings)
@@ -54,9 +52,9 @@ try
         .AddDataAccessModule(appSettings);
 
     var app = builder.Build();
-
-    if (appSettings.Toggles.Swagger)
-        app.UseSwagger().UseSwaggerUI();
+    
+    // if enabled
+    app.UseSwagger().UseSwaggerUI();
 
     app
         .UseHttpsRedirection()
@@ -71,7 +69,7 @@ try
 
     app
         .MapHealthCheckEndpoints()
-        .MapControllers();
+        .MapApplicationEndpoints();
 
     Log.Information("App is starting up");
 

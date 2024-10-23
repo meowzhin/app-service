@@ -11,4 +11,3 @@ public interface IRedisService
     Task SetAsync<T>(string key, string value, TimeSpan? expiry = null, bool keepTtl = false, bool overwrite = true, bool fireAndForget = false, Action<JsonSerializerOptions>? serializerOptions = null);
     Task SubscribeAsync(string channel, Action<string, string> action, bool fireAndForget = false);
 }
-

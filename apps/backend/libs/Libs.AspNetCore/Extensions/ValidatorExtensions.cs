@@ -13,7 +13,7 @@ public static class ValidatorExtensions
         if (result.IsValid)
             return true;
 
-        context.AddBadRequest().AddValidationErrors(result.Errors.Select(x => x.ErrorMessage));
+        context.AddBadRequest().AddValidationErrors(result.Errors.Select(static x => x.ErrorMessage));
 
         return false;
     }

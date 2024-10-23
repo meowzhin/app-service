@@ -1,5 +1,5 @@
 ﻿using System.IO.Compression;
-using FwksLabs.Libs.Core.Extensions;
+using Humanizer;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -11,7 +11,7 @@ public class CustomBrotliCompressionProviderOptions(
 {
     public virtual void Configure(BrotliCompressionProviderOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
         options.Level = CompressionLevel.Optimal;
     }

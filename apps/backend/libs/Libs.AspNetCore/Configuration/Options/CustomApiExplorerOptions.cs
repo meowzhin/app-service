@@ -1,5 +1,5 @@
 ﻿using Asp.Versioning.ApiExplorer;
-using FwksLabs.Libs.Core.Extensions;
+using Humanizer;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -10,7 +10,7 @@ public sealed class CustomApiExplorerOptions(
 {
     public void Configure(ApiExplorerOptions options)
     {
-        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.SpaceTitleCase());
+        logger.LogInformation("Configuring '{OptionsType}'", GetType().Name.Humanize());
 
         options.GroupNameFormat = "'v'VVV";
         options.SubstituteApiVersionInUrl = true;

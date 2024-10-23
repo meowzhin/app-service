@@ -2,7 +2,7 @@
 using FwksLabs.AppService.Core.Abstractions.Repositories;
 using FwksLabs.AppService.Core.Resources.Common.Inputs;
 using FwksLabs.AppService.Core.Resources.Customers.Inputs;
-using FwksLabs.Libs.Core.Security.Extensions;
+using FwksLabs.Libs.Core.Extensions;
 
 namespace FwksLabs.AppService.Core.Resources.Customers.Validators;
 

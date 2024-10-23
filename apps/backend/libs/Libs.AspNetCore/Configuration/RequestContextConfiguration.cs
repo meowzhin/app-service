@@ -10,4 +10,3 @@ public static class RequestContextConfiguration
         services
             .AddScoped<IRequestContext, RequestContext>();
 }
-

@@ -1,5 +1,4 @@
-﻿using System.Text.Json.Serialization;
-using FwksLabs.Libs.Core.Constants;
+﻿using FwksLabs.Libs.Core.Constants;
 using FwksLabs.Libs.Core.Extensions;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
@@ -26,4 +25,3 @@ public sealed record HealthCheckDependencyReport
                 report.Value.Tags.Contains(HealthCheckConstants.Critical));
     }
 }
-

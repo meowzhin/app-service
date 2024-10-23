@@ -1,6 +1,6 @@
-﻿using FwksLabs.Libs.Core.Logging;
+﻿using FwksLabs.Libs.AspNetCore.Configuration;
 
-namespace FwksLabs.AppService.App.Api.Configuration;
+namespace FwksLabs.ResumeService.App.Api.Configuration;
 
 internal sealed class SerilogConfiguration
 {

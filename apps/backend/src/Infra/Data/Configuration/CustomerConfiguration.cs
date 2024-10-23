@@ -3,7 +3,7 @@ using FwksLabs.Libs.Infra.EntityFrameworkCore.Configuration.Common;
 using FwksLabs.Libs.Infra.Postgres.Extensions;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FwksLabs.AppService.Infra.Data.Configuration;
+namespace FwksLabs.ResumeService.Infra.Data.Configuration;
 
 public sealed class CustomerConfiguration : EntityConfiguration<CustomerEntity>, IEntityConfiguration
 {
@@ -12,15 +12,15 @@ public sealed class CustomerConfiguration : EntityConfiguration<CustomerEntity>,
     public override void Extend(EntityTypeBuilder<CustomerEntity> builder)
     {
         builder
-            .Property(x => x.Name)
+            .Property(static x => x.Name)
             .HasJsonbType();
 
         builder
-            .Property(x => x.Phone)
+            .Property(static x => x.Phone)
             .HasJsonbType();
 
         builder
-            .Property(x => x.Address)
+            .Property(static x => x.Address)
             .HasJsonbType();
     }
 }

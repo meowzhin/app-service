@@ -24,7 +24,7 @@ public sealed class AppProblem : ProblemDetails
             Status = status,
             Title = title,
             Detail = detail,
-            Extensions = extensions.ToDictionary(x => x.Key, x => x.Value)
+            Extensions = extensions.ToDictionary(static x => x.Key, static x => x.Value)
         };
     }
 

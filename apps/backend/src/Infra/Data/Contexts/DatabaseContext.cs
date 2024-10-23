@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace FwksLabs.AppService.Infra.Data.Contexts;
+namespace FwksLabs.ResumeService.Infra.Data.Contexts;
 
 public sealed class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbContext(options)
 {
@@ -10,6 +10,6 @@ public sealed class DatabaseContext(DbContextOptions<DatabaseContext> options) :
 
         modelBuilder
             .ApplyConfigurationsFromAssembly(
-                typeof(IEntityConfiguration).Assembly, x => x.IsAssignableTo(typeof(IEntityConfiguration)));
+                typeof(IEntityConfiguration).Assembly, static x => x.IsAssignableTo(typeof(IEntityConfiguration)));
     }
 }

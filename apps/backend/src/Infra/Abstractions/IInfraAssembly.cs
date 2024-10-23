@@ -1,3 +1,3 @@
-﻿namespace FwksLabs.AppService.Infra.Abstractions;
+﻿namespace FwksLabs.ResumeService.Infra.Abstractions;
 
 public interface IInfraAssembly;
