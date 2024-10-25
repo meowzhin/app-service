@@ -1,7 +1,6 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Repositories;
-
-using FwksLabs.AppService.Core.Resources.Customers;
-using FwksLabs.Libs.Infra.EntityFrameworkCore.Repositories;
+﻿using FwksLabs.Libs.Infra.EntityFrameworkCore.Repositories;
+using FwksLabs.ResumeService.Core.Abstractions.Repositories;
+using FwksLabs.ResumeService.Core.Resources.Customers;
 using FwksLabs.ResumeService.Infra.Data.Contexts;
 
 namespace FwksLabs.ResumeService.Infra.Data.Repositories;

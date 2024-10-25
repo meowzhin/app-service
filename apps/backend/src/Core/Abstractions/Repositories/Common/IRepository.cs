@@ -1,3 +1,3 @@
-﻿namespace FwksLabs.AppService.Core.Abstractions.Repositories.Common;
+﻿namespace FwksLabs.ResumeService.Core.Abstractions.Repositories.Common;
 
 public interface IRepository;

@@ -35,23 +35,23 @@ public static class SwaggerExtensions
             });
     }
 
-    public static void AddOAuth2SecurityConfiguration(this SwaggerGenOptions options, Action<AuthServerOptions> authServerAction)
+    public static void AddOAuth2SecurityConfiguration(this SwaggerGenOptions options, Action<OAuth2Options> optionsAction)
     {
-        AuthServerOptions authServer = new();
+        OAuth2Options oauth = new();
 
-        authServerAction?.Invoke(authServer);
+        optionsAction?.Invoke(oauth);
 
-        options.AddSecurityDefinition("OAuth2", new()
+        options.AddSecurityDefinition(oauth.Name, new()
         {
-            Description = "OAuth2 Authorization Code Grant",
+            Description = oauth.Description,
             Type = SecuritySchemeType.OAuth2,
             Flows = new()
             {
                 AuthorizationCode = new()
                 {
-                    AuthorizationUrl = new Uri($"{authServer.Authority}/protocol/openid-connect/auth"),
-                    TokenUrl = new Uri($"{authServer.Authority}/protocol/openid-connect/token"),
-                    Scopes = authServer.Scopes
+                    AuthorizationUrl = new Uri($"{oauth.Authority}/protocol/openid-connect/auth"),
+                    TokenUrl = new Uri($"{oauth.Authority}/protocol/openid-connect/token"),
+                    Scopes = oauth.Scopes
                 }
             }
         });
@@ -64,10 +64,10 @@ public static class SwaggerExtensions
                     Reference = new()
                     {
                         Type = ReferenceType.SecurityScheme,
-                        Id = "OAuth2"
+                        Id = oauth.Name
                     }
                 },
-                authServer.Scopes.Select(static x => x.Key).ToArray()
+                oauth.Scopes.Select(static x => x.Key).ToArray()
             },
         });
     }

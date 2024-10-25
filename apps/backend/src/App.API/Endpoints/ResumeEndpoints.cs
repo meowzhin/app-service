@@ -1,5 +1,4 @@
 ﻿using System.Net.Mime;
-using Asp.Versioning;
 using FluentValidation;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;

@@ -9,8 +9,8 @@ public static class JsonConfiguration
 {
     public static IServiceCollection OverrideJsonOptions(this IServiceCollection services) =>
         services
-            .AddTransient<IConfigureOptions<MvcOptions>, CustomMvcOptions>()
-            .AddTransient<IConfigureOptions<JsonOptions>, CustomJsonOptions>();
+            .AddTransient<IConfigureOptions<MvcOptions>, ConfigureMvcOptions>()
+            .AddTransient<IConfigureOptions<JsonOptions>, ConfigureJsonOptions>();
 
     public static IServiceCollection OverrideJsonOptions<TMvc, TJson>(this IServiceCollection services)
         where TMvc : class, IConfigureOptions<MvcOptions>

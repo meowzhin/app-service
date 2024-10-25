@@ -1,7 +1,7 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Services.Common;
-using FwksLabs.AppService.Core.Resources.Customers;
-using FwksLabs.Libs.Core.Abstractions.Repositories;
+﻿using FwksLabs.Libs.Core.Abstractions.Repositories;
+using FwksLabs.ResumeService.Core.Abstractions.Services.Common;
+using FwksLabs.ResumeService.Core.Resources.Customers;
 
-namespace FwksLabs.AppService.Core.Abstractions.Repositories;
+namespace FwksLabs.ResumeService.Core.Abstractions.Repositories;
 
 public interface ICustomerRepository : IBaseRepository<int, CustomerEntity>, ITransacionalRepository, IService;

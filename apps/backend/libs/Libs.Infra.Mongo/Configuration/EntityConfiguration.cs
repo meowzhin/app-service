@@ -1,4 +1,4 @@
-﻿using FwksLabs.Libs.Core.Entities;
+﻿using FwksLabs.Libs.Core.Types;
 using Humanizer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

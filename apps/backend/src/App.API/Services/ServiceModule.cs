@@ -1,5 +1,5 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Services.Common;
-using FwksLabs.ResumeService.App.Api.Services.Common;
+﻿using FwksLabs.ResumeService.App.Api.Services.Common;
+using FwksLabs.ResumeService.Core.Abstractions.Services.Common;
 
 namespace FwksLabs.ResumeService.App.Api.Services;
 

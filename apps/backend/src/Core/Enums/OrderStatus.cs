@@ -1,4 +1,4 @@
-﻿namespace FwksLabs.AppService.Core.Enums;
+﻿namespace FwksLabs.ResumeService.Core.Enums;
 
 public enum OrderStatus
 {

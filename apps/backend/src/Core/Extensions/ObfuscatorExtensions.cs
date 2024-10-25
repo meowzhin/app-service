@@ -1,7 +1,7 @@
-﻿using FwksLabs.Libs.Core.Entities;
-using FwksLabs.Libs.Core.Extensions;
+﻿using FwksLabs.Libs.Core.Extensions;
+using FwksLabs.Libs.Core.Types;
 
-namespace FwksLabs.AppService.Core.Extensions;
+namespace FwksLabs.ResumeService.Core.Extensions;
 
 public static class ObfuscatorExtensions
 {

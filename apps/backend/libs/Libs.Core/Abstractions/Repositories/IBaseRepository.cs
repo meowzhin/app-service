@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using FwksLabs.Libs.Core.Entities;
+using FwksLabs.Libs.Core.Types;
 
 namespace FwksLabs.Libs.Core.Abstractions.Repositories;
 

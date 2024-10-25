@@ -1,8 +1,8 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Services.Common;
-using FwksLabs.AppService.Core.Resources.Orders;
-using FwksLabs.Libs.Core.Abstractions.Repositories;
+﻿using FwksLabs.Libs.Core.Abstractions.Repositories;
+using FwksLabs.ResumeService.Core.Abstractions.Services.Common;
+using FwksLabs.ResumeService.Core.Resources.Orders;
 
-namespace FwksLabs.AppService.Core.Abstractions.Repositories;
+namespace FwksLabs.ResumeService.Core.Abstractions.Repositories;
 
 public interface IOrderRepository : IBaseRepository<int, OrderEntity>, ITransacionalRepository, IService
 {

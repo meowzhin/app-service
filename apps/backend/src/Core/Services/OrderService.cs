@@ -1,14 +1,14 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Repositories;
-using FwksLabs.AppService.Core.Abstractions.Services;
-using FwksLabs.AppService.Core.Abstractions.Services.Common;
-using FwksLabs.AppService.Core.Extensions;
-using FwksLabs.AppService.Core.Resources.Orders;
-using FwksLabs.AppService.Core.Resources.Orders.Inputs;
-using FwksLabs.AppService.Core.Resources.Orders.Outputs;
-using FwksLabs.Libs.Core.Extensions;
+﻿using FwksLabs.Libs.Core.Extensions;
 using FwksLabs.Libs.Core.Outputs;
+using FwksLabs.ResumeService.Core.Abstractions.Repositories;
+using FwksLabs.ResumeService.Core.Abstractions.Services;
+using FwksLabs.ResumeService.Core.Abstractions.Services.Common;
+using FwksLabs.ResumeService.Core.Extensions;
+using FwksLabs.ResumeService.Core.Resources.Orders;
+using FwksLabs.ResumeService.Core.Resources.Orders.Inputs;
+using FwksLabs.ResumeService.Core.Resources.Orders.Outputs;
 
-namespace FwksLabs.AppService.Core.Services;
+namespace FwksLabs.ResumeService.Core.Services;
 
 public sealed class OrderService(
     IValidatorService validator,

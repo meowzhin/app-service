@@ -9,9 +9,9 @@ public static class CompressionConfiguration
 {
     public static IServiceCollection OverrideCompressionOptions(this IServiceCollection services) =>
         services
-            .AddTransient<IConfigureOptions<GzipCompressionProviderOptions>, CustomGzipCompressionProviderOptions>()
-            .AddTransient<IConfigureOptions<BrotliCompressionProviderOptions>, CustomBrotliCompressionProviderOptions>()
-            .AddTransient<IConfigureOptions<ResponseCompressionOptions>, CustomResponseCompressionOptions>();
+            .AddTransient<IConfigureOptions<GzipCompressionProviderOptions>, ConfigureGzipCompressionProviderOptions>()
+            .AddTransient<IConfigureOptions<BrotliCompressionProviderOptions>, ConfigureBrotliCompressionProviderOptions>()
+            .AddTransient<IConfigureOptions<ResponseCompressionOptions>, ConfigureResponseCompressionOptions>();
 
     public static IServiceCollection OverrideCompressionOptions<TGzip, TBrotli, TResponse>(this IServiceCollection services)
         where TGzip : class, IConfigureOptions<GzipCompressionProviderOptions>

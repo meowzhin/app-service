@@ -1,6 +1,6 @@
 ﻿using FwksLabs.Libs.Core.Abstractions;
 
-namespace FwksLabs.AppService.Core.Configuration.Settings.Properties;
+namespace FwksLabs.ResumeService.Core.Configuration.Settings.Properties;
 
 public record PostgresSettings : IConnectionStringBuilder
 {

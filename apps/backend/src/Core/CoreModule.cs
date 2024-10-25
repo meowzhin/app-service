@@ -1,14 +1,12 @@
 ﻿using System.Globalization;
 using FluentValidation;
-using FwksLabs.AppService.Core.Abstractions;
-using FwksLabs.AppService.Core.Abstractions.Services;
-using FwksLabs.AppService.Core.Configuration.Settings;
-using FwksLabs.AppService.Core.Configuration.Settings.Properties;
-using FwksLabs.AppService.Core.Services;
 using FwksLabs.Libs.Core.Security;
+using FwksLabs.ResumeService.Core.Abstractions;
+using FwksLabs.ResumeService.Core.Configuration.Settings;
+using FwksLabs.ResumeService.Core.Configuration.Settings.Properties;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FwksLabs.AppService.Core;
+namespace FwksLabs.ResumeService.Core;
 
 public static class CoreModule
 {
@@ -16,13 +14,13 @@ public static class CoreModule
         services
             .AddServices()
             //.AddRedis(appSettings.Persistence.Redis.Build())
-            .AddObfuscator(appSettings.Security.Obfuscator)
+            //.AddObfuscator(appSettings.Security.Obfuscator)
             .AddFluentValidation();
 
     private static IServiceCollection AddServices(this IServiceCollection services) =>
-        services
-            .AddScoped<ICustomerService, CustomerService>()
-            .AddScoped<IOrderService, OrderService>();
+        services;
+            //.AddScoped<ICustomerService, CustomerService>()
+            //.AddScoped<IOrderService, OrderService>();
 
     private static IServiceCollection AddObfuscator(this IServiceCollection services, ObfuscatorSettings settings) =>
         services
@@ -37,7 +35,9 @@ public static class CoreModule
     {
         ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("en-US");
 
-        return services
-            .AddValidatorsFromAssemblyContaining<ICoreAssembly>();
+        return services;
+
+        //return services
+        //    .AddValidatorsFromAssemblyContaining<ICoreAssembly>();
     }
 }

@@ -1,3 +1,3 @@
-﻿namespace FwksLabs.AppService.Core.Abstractions.Services.Common;
+﻿namespace FwksLabs.ResumeService.Core.Abstractions.Services.Common;
 
 public interface IService;

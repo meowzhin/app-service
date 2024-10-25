@@ -1,6 +1,6 @@
-﻿using FwksLabs.AppService.Core.Resources.Orders;
-using FwksLabs.Libs.Infra.EntityFrameworkCore.Configuration.Common;
+﻿using FwksLabs.Libs.Infra.EntityFrameworkCore.Configuration.Common;
 using FwksLabs.Libs.Infra.EntityFrameworkCore.Extensions;
+using FwksLabs.ResumeService.Core.Resources.Orders;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FwksLabs.ResumeService.Infra.Data.Configuration;

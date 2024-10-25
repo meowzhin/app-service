@@ -10,12 +10,12 @@ namespace FwksLabs.Libs.AspNetCore.Configuration;
 
 public static class AuthConfiguration
 {
-    public static IServiceCollection OverrideAuthOptions(this IServiceCollection services, AuthServerOptions authOptions) =>
+    public static IServiceCollection OverrideAuthOptions(this IServiceCollection services, OAuth2Options authOptions) =>
         services
             .AddSingleton(authOptions)
-            .AddTransient<IConfigureOptions<AuthenticationOptions>, CustomAuthenticationOptions>()
-            .AddTransient<IConfigureOptions<JwtBearerOptions>, CustomJwtBearerOptions>()
-            .AddTransient<IConfigureOptions<AuthorizationOptions>, CustomAuthorizationOptions>();
+            .AddTransient<IConfigureOptions<AuthenticationOptions>, ConfigureAuthenticationOptions>()
+            .AddTransient<IConfigureOptions<JwtBearerOptions>, ConfigureJwtBearerOptions>()
+            .AddTransient<IConfigureOptions<AuthorizationOptions>, ConfigureAuthorizationOptions>();
 
     public static IServiceCollection OverrideAuthOptions<TAuthentication, TJwtBearer, TAuthorization>(this IServiceCollection services)
         where TAuthentication : class, IConfigureOptions<AuthenticationOptions>

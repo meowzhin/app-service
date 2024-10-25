@@ -1,7 +1,7 @@
-﻿using FwksLabs.AppService.Core.Configuration.Settings.Properties;
-using FwksLabs.Libs.Core.Security.Options;
+﻿using FwksLabs.Libs.Core.Security.Options;
+using FwksLabs.ResumeService.Core.Configuration.Settings.Properties;
 
-namespace FwksLabs.AppService.Core.Configuration.Settings;
+namespace FwksLabs.ResumeService.Core.Configuration.Settings;
 
 public record SecuritySettings
 {

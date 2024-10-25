@@ -1,6 +1,6 @@
-﻿using FwksLabs.AppService.Core.Configuration.Settings.Properties;
+﻿using FwksLabs.ResumeService.Core.Configuration.Settings.Properties;
 
-namespace FwksLabs.AppService.Core.Configuration.Settings;
+namespace FwksLabs.ResumeService.Core.Configuration.Settings;
 
 public record PersistenceSettings
 {

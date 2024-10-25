@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using FwksLabs.Libs.Core.Abstractions.Repositories;
-using FwksLabs.Libs.Core.Entities;
+using FwksLabs.Libs.Core.Types;
 using Microsoft.EntityFrameworkCore;
 
 namespace FwksLabs.Libs.Infra.EntityFrameworkCore.Repositories;

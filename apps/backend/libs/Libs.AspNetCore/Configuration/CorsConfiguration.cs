@@ -11,7 +11,7 @@ public static class CorsConfiguration
     public static IServiceCollection OverrideCorsOptions(this IServiceCollection services, FwksLabCorsOptions corsOptions) =>
         services
             .AddSingleton(corsOptions)
-            .AddTransient<IConfigureOptions<CorsOptions>, CustomCorsOptions>();
+            .AddTransient<IConfigureOptions<CorsOptions>, ConfigureCorsOptions>();
 
     public static IServiceCollection OverrideCorsOptions<TCors>(this IServiceCollection services)
         where TCors : class, IConfigureOptions<CorsOptions> =>

@@ -1,6 +1,6 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Repositories;
-using FwksLabs.AppService.Core.Resources.Orders;
-using FwksLabs.Libs.Infra.EntityFrameworkCore.Repositories;
+﻿using FwksLabs.Libs.Infra.EntityFrameworkCore.Repositories;
+using FwksLabs.ResumeService.Core.Abstractions.Repositories;
+using FwksLabs.ResumeService.Core.Resources.Orders;
 using FwksLabs.ResumeService.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 

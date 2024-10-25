@@ -8,29 +8,29 @@ namespace FwksLabs.Libs.AspNetCore.Configuration;
 
 public static class VersioningConfiguration
 {
-    public static IServiceCollection OverrideVersioningOptions(this IServiceCollection services, IEnumerable<ApiVersion>? apiVersions = default) =>
+    public static IServiceCollection OverrideVersioningOptions(this IServiceCollection services) =>
         services
-            .AddVersionConfiguration(apiVersions)
-            .AddTransient<IConfigureOptions<ApiVersioningOptions>, CustomApiVersioningOptions>()
-            .AddTransient<IConfigureOptions<ApiExplorerOptions>, CustomApiExplorerOptions>();
+            .AddTransient<IConfigureOptions<ApiVersioningOptions>, ConfigureApiVersioningOptions>()
+            .AddTransient<IConfigureOptions<ApiExplorerOptions>, ConfigureApiExplorerOptions>();
 
-    public static IServiceCollection OverrideVersioningOptions<TVersioning, TExplorer>(this IServiceCollection services, IEnumerable<ApiVersion>? apiVersions = default)
+    public static IServiceCollection OverrideVersioningOptions<TVersioning, TExplorer>(this IServiceCollection services)
         where TVersioning : class, IConfigureOptions<ApiVersioningOptions>
         where TExplorer : class, IConfigureOptions<ApiExplorerOptions> =>
             services
-                .AddVersionConfiguration(apiVersions)
                 .AddTransient<IConfigureOptions<ApiVersioningOptions>, TVersioning>()
                 .AddTransient<IConfigureOptions<ApiExplorerOptions>, TExplorer>();
 
-    private static IServiceCollection AddVersionConfiguration(this IServiceCollection services, IEnumerable<ApiVersion>? apiVersions)
-    {
-        apiVersions ??= [new(1, 0)];
-
-        return services;
-    }
-}
-
-public class ApiVersionConfiguration
-{
-    public IEnumerable<ApiVersion>? Versions { get; }
+    public static IServiceCollection AddEndpointsVersioning(this IServiceCollection services) =>
+        services
+            .AddEndpointsApiExplorer()
+            .AddApiVersioning(x =>
+            {
+                x.ReportApiVersions = true;
+            })
+            .AddApiExplorer(x =>
+            {
+                x.GroupNameFormat = "'v'VVV";
+                x.SubstituteApiVersionInUrl = true;
+            })
+            .Services;
 }

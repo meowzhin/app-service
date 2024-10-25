@@ -1,9 +1,9 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Services.Common;
-using FwksLabs.AppService.Core.Resources.Customers.Inputs;
-using FwksLabs.AppService.Core.Resources.Customers.Outputs;
-using FwksLabs.Libs.Core.Outputs;
+﻿using FwksLabs.Libs.Core.Outputs;
+using FwksLabs.ResumeService.Core.Abstractions.Services.Common;
+using FwksLabs.ResumeService.Core.Resources.Customers.Inputs;
+using FwksLabs.ResumeService.Core.Resources.Customers.Outputs;
 
-namespace FwksLabs.AppService.Core.Abstractions.Services;
+namespace FwksLabs.ResumeService.Core.Abstractions.Services;
 
 public interface ICustomerService : IService
 {

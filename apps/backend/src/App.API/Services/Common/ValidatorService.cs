@@ -1,17 +1,18 @@
 ﻿using System.Linq.Expressions;
 using FluentValidation;
-using FwksLabs.AppService.Core.Abstractions.Services.Common;
 using FwksLabs.Libs.AspNetCore.Abstractions.Contexts;
 using FwksLabs.Libs.AspNetCore.Extensions;
 using FwksLabs.Libs.Core.Abstractions.Repositories;
-using FwksLabs.Libs.Core.Entities;
 using FwksLabs.Libs.Core.Extensions;
+using FwksLabs.Libs.Core.Types;
+using FwksLabs.ResumeService.Core.Abstractions.Services.Common;
 
 namespace FwksLabs.ResumeService.App.Api.Services.Common;
 
 public sealed class ValidatorService(
     IRequestContext requestContext,
-    IServiceProvider serviceProvider) : IValidatorService
+    IServiceProvider serviceProvider) 
+    : IValidatorService
 {
     public Task<bool> ValidateInputAsync<TInstance>(TInstance instance, CancellationToken cancellationToken = default)
          where TInstance : class =>

@@ -1,9 +1,9 @@
-﻿using FwksLabs.AppService.Core.Abstractions.Services.Common;
-using FwksLabs.AppService.Core.Resources.Orders.Inputs;
-using FwksLabs.AppService.Core.Resources.Orders.Outputs;
-using FwksLabs.Libs.Core.Outputs;
+﻿using FwksLabs.Libs.Core.Outputs;
+using FwksLabs.ResumeService.Core.Abstractions.Services.Common;
+using FwksLabs.ResumeService.Core.Resources.Orders.Inputs;
+using FwksLabs.ResumeService.Core.Resources.Orders.Outputs;
 
-namespace FwksLabs.AppService.Core.Abstractions.Services;
+namespace FwksLabs.ResumeService.Core.Abstractions.Services;
 
 public interface IOrderService : IService
 {

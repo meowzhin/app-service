@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
 using FwksLabs.Libs.Core.Abstractions.Repositories;
-using FwksLabs.Libs.Core.Entities;
+using FwksLabs.Libs.Core.Types;
 
-namespace FwksLabs.ResumeService.Core.FwksLabs.AppService.Core.Abstractions.Services.Common;
+namespace FwksLabs.ResumeService.Core.Abstractions.Services.Common;
 
 public interface IValidatorService
 {

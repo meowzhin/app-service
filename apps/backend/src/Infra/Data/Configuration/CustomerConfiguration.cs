@@ -1,6 +1,6 @@
-﻿using FwksLabs.AppService.Core.Resources.Customers;
-using FwksLabs.Libs.Infra.EntityFrameworkCore.Configuration.Common;
+﻿using FwksLabs.Libs.Infra.EntityFrameworkCore.Configuration.Common;
 using FwksLabs.Libs.Infra.Postgres.Extensions;
+using FwksLabs.ResumeService.Core.Resources.Customers;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FwksLabs.ResumeService.Infra.Data.Configuration;
