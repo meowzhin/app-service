@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>FwksLabs.AppService.Infra</AssemblyName>
+        <RootNamespace>FwksLabs.AppService.Infra</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\libs\Libs.Infra.Postgres\Old.Libs.Infra.Postgres.csproj" />
+        <ProjectReference Include="..\..\libs\Libs.Core\Old.Libs.Core.csproj" />
+        <ProjectReference Include="..\..\libs\Libs.Infra.EntityFrameworkCore\Old.Libs.Infra.EntityFrameworkCore.csproj" />
+    </ItemGroup>
+
+</Project>

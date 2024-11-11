@@ -2,22 +2,15 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FwksLabs.AppService.Core</AssemblyName>
-        <RootNamespace>FwksLabs.AppService.Core</RootNamespace>
+        <AssemblyName>FwksLabs.ResumeService.Core</AssemblyName>
+        <RootNamespace>FwksLabs.ResumeService.Core</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="11.10.0" />
-      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\libs\Libs.Core.Security\Libs.Core.Security.csproj" />
-        <ProjectReference Include="..\..\libs\Libs.Core\Libs.Core.csproj" />
-        <ProjectReference Include="..\..\libs\Libs.Infra.Redis\Libs.Infra.Redis.csproj" />
+      <ProjectReference Include="..\..\libs\Libs.Core\Libs.Core.csproj" />
+      <ProjectReference Include="..\..\libs\Libs.Infra.Postgres\Libs.Infra.Postgres.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>FwksLabs.AppService.Core</AssemblyName>
+        <RootNamespace>FwksLabs.AppService.Core</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="11.10.0" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\libs\Libs.Core.Security\Old.Libs.Core.Security.csproj" />
+        <ProjectReference Include="..\..\libs\Libs.Core\Old.Libs.Core.csproj" />
+        <ProjectReference Include="..\..\libs\Libs.Infra.Redis\Old.Libs.Infra.Redis.csproj" />
+    </ItemGroup>
+
+</Project>

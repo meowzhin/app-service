@@ -4,22 +4,20 @@
         <TargetFramework>net8.0</TargetFramework>
         <AssemblyName>FwksLabs.Libs.AspNetCore</AssemblyName>
         <RootNamespace>FwksLabs.Libs.AspNetCore</RootNamespace>
-        <IsPackable>true</IsPackable>
-        <ImplicitUsings>true</ImplicitUsings>
+        <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
-        <PackageReference Include="FluentValidation" Version="11.10.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+      <Compile Remove="Abstractions\**" />
+      <EmbeddedResource Remove="Abstractions\**" />
+      <None Remove="Abstractions\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Libs.Core\Libs.Core.csproj" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.10" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     </ItemGroup>
 
 </Project>

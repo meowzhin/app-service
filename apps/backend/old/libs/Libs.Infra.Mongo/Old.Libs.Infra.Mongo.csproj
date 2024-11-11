@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>FwksLabs.Libs.Infra.Mongo</AssemblyName>
+        <RootNamespace>FwksLabs.Libs.Infra.Mongo</RootNamespace>
+        <IsPackable>true</IsPackable>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MongoDB.EntityFrameworkCore" Version="8.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Libs.Core\Old.Libs.Core2.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,11 +1,16 @@
-﻿using FwksLabs.Libs.Core.Security.Options;
+﻿namespace FwksLabs.ResumeService.Core.Configuration.Settings;
 
-namespace FwksLabs.AppService.Core.Configuration.Settings;
-
-public record AppSettings
+public interface IConnectionString
 {
-    public DocumentationOptions Documentation { get; set; } = new();
-    public SecuritySettings Security { get; set; } = new();
-    public PersistenceSettings Persistence { get; set; } = new();
-    public TogglesSettings Toggles { get; set; } = new();
+    string ConnectionString { get; set; }
+}
+
+public sealed class AppSettings
+{
+    public SQLiteSettings Postgres { get; set; } = new();
+}
+
+public sealed record SQLiteSettings : IConnectionString
+{
+    public string ConnectionString { get; set; } = string.Empty;
 }
